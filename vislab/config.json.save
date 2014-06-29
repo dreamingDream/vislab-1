@@ -1,0 +1,33 @@
+{
+
+    "paths": {
+        "behance_style_repo": "/data/qzhang/work/behance_style",
+        "VOC2012": "/data/qzhang/work/vision_data/VOC2012",
+        "VOC2007": "/data/qzhang/work/vision_data/VOC2007",
+        "ILSVRC2013": "/data/qzhang/work/vision_data/ILSVRC2013",
+        "INRIAPerson": "/data/qzhang/work/vision_data/INRIAPerson",
+        "AVA": "/data/qzhang/work/vision_data/AVA_dataset",
+        "data": "/data/qzhang/work/vislab-git/data",
+        "images": "/data/qzhang/work/vislab-git/data/images",
+        "shared_data": "/data/qzhang/work/vislab-git/data/shared",
+        "static_data": "/data/qzhang/work/vislab-git/data/static",
+        "feats": "/data/qzhang/work/vislab-git/data/feats",
+        "predict_stable": "/data/qzhang/work/vislab-git/data/predict_stable",
+        "predict_temp": "/data/qzhang/work/vislab-git/data/predict_temp",
+        "results": "/data/qzhang/work/vislab-git/data/results",
+        "caffe": "/data/qzhang/work/caffe-bvlc",
+        "vlg_extractor": "/data/qzhang/work/vlg_extractor_v1.1.0"
+
+    },
+    "api_keys": {
+        "flickr": "",
+        "behance": "",
+        "500px": ["", ""]
+    },
+    "servers": {
+        "mongo": ["0.0.0.0", 27017],
+        "redis": ["0.0.0.0", 6379],
+        "redis_exclude": "orange6"
+    }
+}
+
