@@ -134,7 +134,7 @@ def _cache_cmd(
     for f in feat_filenames:
         assert(os.path.exists(f))
     cats = [
-        '<(gzcat {})'.format(f) if f.endswith('.gz') else '<(cat {})'.format(f)
+        '<(zcat {})'.format(f) if f.endswith('.gz') else '<(cat {})'.format(f)
         for f in feat_filenames
     ]
     paste_cmd = "paste -d'\\0' {}".format(' '.join(cats))
@@ -457,6 +457,7 @@ def _score_predict(setting, dirname, num_labels, gt_df):
 def _read_preds(filename, num_labels, loss_function):
     # TODO: should multiclass names be passed into here?
     try:
+	print filename, num_labels
         if num_labels > 2:
             df = pd.read_csv(filename, sep=' ', index_col=-1, header=None)
             df = df.apply(
@@ -549,8 +550,9 @@ class VW(object):
             dataset['num_labels'], self.bit_precision, best_model_filename
         )
         cmd_filename = output_dirnames['val'] + '/_train_cmd.sh'
+	print cmd_filename, cmd
         vislab.util.run_through_bash_script(
-            [cmd], cmd_filename, verbose=False)
+            [cmd], cmd_filename, verbose=True)
 
         # Get predictions from all the splits. Need to predict on train.
         print("Running VW prediction on all splits.")
@@ -594,6 +596,7 @@ class VW(object):
 
         model_filenames = glob.glob(
             '{}/*_model.vw'.format(source_output_dirnames['val']))
+	print "hello", '{}/*_model.vw'.format(source_output_dirnames['val']),model_filenames
         assert(len(model_filenames) == 1)
         best_name = re.search('/(.+)_model.vw', model_filenames[0]).groups()[0]
         best_setting = _name_to_setting(best_name)

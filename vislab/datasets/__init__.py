@@ -4,6 +4,7 @@ import wikipaintings
 import pinterest
 import pascal
 import behance
+import mine_flickr
 
 DATASETS = {
     'ava': {
@@ -14,6 +15,9 @@ DATASETS = {
     },
     'flickr': {
         'fn': flickr.get_df
+    },
+    'mine_flickr': {
+        'fn': mine_flickr.get_style_df
     },
     'wikipaintings': {
         'fn': wikipaintings.get_style_df

@@ -197,7 +197,7 @@ def mc_bit(image_ids, image_filenames):
         f.write('\n'.join(image_filenames) + '\n')
 
     output_dirname = tempfile.mkdtemp()
-    cmd = './vlg_extractor.sh'
+    cmd = './vlg_extractor_v1.1.3/vlg_extractor.sh'
     cmd += ' --parameters-dir={} --extract_mc_bit=ASCII {} {} {}'.format(
         'data/picodes_data', list_filename, input_dirname, output_dirname)
     print(cmd)

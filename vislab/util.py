@@ -138,7 +138,9 @@ def run_through_bash_script(cmds, filename=None, verbose=False, num_workers=1):
     if remove_file:
         os.remove(filename)
     if not p.returncode == 0:
+	print "out:	"
         print(out)
+	print "\nerror\n"
         print(err)
         raise Exception("Script exited with code {}".format(p.returncode))
 
