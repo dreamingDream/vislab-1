@@ -197,17 +197,15 @@ def mc_bit(image_ids, image_filenames):
         f.write('\n'.join(image_filenames) + '\n')
 
     output_dirname = tempfile.mkdtemp()
-    cmd = './vlg_extractor_v1.1.3/vlg_extractor.sh'
-    cmd += ' --parameters-dir={} --extract_mc_bit=ASCII {} {} {}'.format(
-        'data/picodes_data', list_filename, input_dirname, output_dirname)
+    cmd = './vislab/features/vlg_extractor_v1.1.3/vlg_extractor.sh'
+    cmd += ' --extract_mc_bit=ASCII {} {} {}'.format(list_filename, input_dirname, output_dirname)
     print(cmd)
-
+    print(os.path.expanduser(vislab.config['paths']['vlg_extractor']))
     try:
-        print("Starting {}".format(cmd))
         p = subprocess.Popen(
             shlex.split(cmd),
-            cwd=os.path.expanduser(vislab.config['paths']['vlg_extractor'])
-        )
+            #cwd=os.path.expanduser(vislab.config['paths']['vlg_extractor'])
+	)
         p.wait()
     except Exception as e:
         print(e)
